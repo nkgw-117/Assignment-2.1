@@ -66,10 +66,26 @@
             confirm_password.onkeyup = validatePassword;
 
             function myFunction() {
-                        alert("Please check your Email for confirmation");
+
+                const inputs = document.querySelectorAll("input[required]");
+                let allFilled = true;
+
+
+                inputs.forEach(input => {
+                    if (input.value.trim() === "") {
+                        allFilled = false;
                     }
+                });
+
+                    if (allFilled) {
+                        alert("Please check your Email for confirmation");
+                    } else {
+                        alert("Please fill out all fields first!");
+                    }
+                }
     </script>
     
 </body>
 
 </html>
+
