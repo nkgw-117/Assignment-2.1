@@ -1,0 +1,89 @@
+<html>
+<head>
+    <link href="https://fonts.cdnfonts.com/css/catchy-mager" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="#" method="post">
+            <table>
+                <div>
+                <tr>
+                    <td><input type="text" id="name" name="name" placeholder="First Name" required></td>
+                    <td><input type="text" id="name" name="name" placeholder="Last Name" required></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="username" name="username" placeholder="Username" required></td>
+                    <td><input type="number" id="phonenumber" name="phonenumber" placeholder="Phone Number" required></td>
+                </tr>
+                <tr>
+                    <td><input type="email" id="email" name="email" placeholder="Email Address" required></td>
+                    <td><input type="text" id="country" name="country" placeholder="Country" required></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="gender" name="gender" placeholder="Gender" required>
+                            <option value="" disabled selected>Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        <td><input type="text" placeholder="Date of Birth" onfocus="(this.type='date')" required></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="password" name="password" placeholder="Password" minlength="8" required></td>
+                    <td><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required></td>
+                </tr>
+                </div>
+                <div>
+                    <td><input type="checkbox" required>I agree with the Terms and Conditions</td>
+                </div>
+                <tr>
+                    <td colspan="2" ><button type="submit" onclick="myFunction()">Register</button></td>
+                </tr>
+            </table>
+        </form>
+        <div class="back-link">
+            Already Have an Account?<a href=""> Login</a>
+        </div>
+    </div>
+
+    <script>
+            var password = document.getElementById("password")
+                , confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword(){
+                if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+
+            function myFunction() {
+
+                const inputs = document.querySelectorAll("input[required]");
+                let allFilled = true;
+
+
+                inputs.forEach(input => {
+                    if (input.value.trim() === "") {
+                        allFilled = false;
+                    }
+                });
+
+                    if (allFilled) {
+                        alert("Please check your Email for confirmation");
+                    } else {
+                        alert("Please fill out all fields first!");
+                    }
+                }
+    </script>
+    
+</body>
+</html>
